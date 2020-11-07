@@ -27,7 +27,7 @@ namespace Datos
                 }
                 catch (Exception e)
                 {
-                    throw new Exception("Error al tratar de guardar,borrar o modificar de Alumnos", e);
+                    throw new Exception("Error al tratar de guardar,borrar o modificar el tipo de Movimiento", e);
                 }
             }
             return resultado;
@@ -41,7 +41,7 @@ namespace Datos
             if (cual != "Todos")
                 orden = "select * from Profesionales where CodProf = " + int.Parse(cual) + ";";
             else
-                orden = "select * from Movimientos;";
+                orden = "select * from Movimientos order by id desc;";
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter();
@@ -54,7 +54,7 @@ namespace Datos
             }
             catch (Exception e)
             {
-                throw new Exception("Error al listar alumnos", e);
+                throw new Exception("Error al listar Movimientos", e);
             }
             finally
             {
